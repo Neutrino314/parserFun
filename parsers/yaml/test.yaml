@@ -1,0 +1,19 @@
+--- &1
+ID: 1
+
+gameObject:
+
+  Transform: {ID: 2}
+  Acceleration: [0.0, 0.0]
+  components: {}
+  renderComponents: {}
+
+--- &2
+ID: 2
+
+Transform:
+
+  parent: {ID: 1}
+  position: [0.0f, 0.0f]
+  scale: [1.0f, 1.0f]
+  rotation: 0.0f  

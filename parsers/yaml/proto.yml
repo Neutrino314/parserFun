@@ -1,0 +1,36 @@
+--- &1
+
+gameObject:
+
+  myVel: {x: 0.0f, y: 0.0f}
+  Transform: {position: [0.0f, 0.0f], scale: [1.0f, 1.0f], rotation: 0.0f}
+  components: {}
+  renderComponents: {}
+  ID: 0
+
+--- &2
+
+  gameObject:
+
+    myVel: {x: 0.0f, y: 0.0f}
+    Transform: {position: [400.0f, 400.0f], scale: [1.0f, 1.0f], rotation: 0.0f}
+    components: {ID: 3}
+    renderComponents: {ID: 4}
+    ID: 1
+
+--- &3
+
+  buttonComp:
+
+    AABB: {x: 0.0f, y: 0.0f, width: 50.0f, height: 40.0f}
+    parent: {ID: 2}
+    action: {ID: 5}
+
+--- &4
+
+  buttonRenderer:
+
+    AABB: {x: 0.0f, y: 0.0f, width: 50.0f, height: 40.0f}
+    text: "press me"
+    color: {r: 150, g: 150, b: 150}
+    
