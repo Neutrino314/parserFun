@@ -1,4 +1,6 @@
-class test {
+class test 
+
+ {
 
 private:
 

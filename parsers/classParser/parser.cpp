@@ -161,6 +161,32 @@ struct bracePair
 
 };
 
+bool firstNonEmptyChar(std::string line, const char delimiter)
+{
+
+    line = removeChar(line, ' ');
+
+    for (const char character : line)
+    {
+
+        if (character == delimiter)
+        {
+
+            return true;
+
+        }
+        else 
+        {
+
+            break;
+
+        }
+
+    }
+
+    return false;
+}
+
 bool bracePairBegins(std::string line)
 {
 
@@ -187,6 +213,7 @@ private:
     std::string className;
 
     bool classDefined{false};
+    bool classWithoutBrackets{false};
 
     std::stack<bracePair> braceStack;
 
@@ -233,15 +260,28 @@ public:
 
                 braceStack.push(bracePair{true});
                 std::cout << "definition beginning\n";
+                classDefined = true;
                 return true;
 
             }
             else
             {
 
+                classWithoutBrackets = true;
                 return true;
 
             }
+
+        }
+
+        if (classWithoutBrackets && firstNonEmptyChar(curLine, '{'))
+        {
+
+            classDefined = true;
+            classWithoutBrackets = false;
+            braceStack.push(bracePair{true});
+            std::cout << "definition beginning\n";
+            return true;
 
         }
 
@@ -285,6 +325,14 @@ public:
         }
 
         classDefinitionBegin(line);
+
+        if (firstNonEmptyChar(line, '{'))
+        {
+
+            braceStack.push(bracePair{true});
+
+        }
+
 
     }
 
