@@ -1,14 +1,17 @@
+#include <string> 
 class test 
 
- {
+{
 
-private:
+private: 
 
     float rotation;
 
 public:
 
     const int life{42};
+
+    short int baz = 31;
 
     test()
     {
@@ -22,10 +25,37 @@ public:
 
     }
 
-    bool doSomething()
+    void stuff();
+
+    void returnNothing() {return;}
+
+    std::string removeChar(std::string line, char toRemove)
     {
 
-        return true;
+    std::string finalString;
+
+    for (const char character : line)
+    {
+
+        if (character == toRemove)
+        {
+
+            continue;
+
+        }
+        else
+        {
+
+            finalString += character;
+
+        }
+
+    }
+
+    int i = 0;
+    i++;
+
+    return finalString;
 
     }
 
